@@ -1,0 +1,5 @@
+target 'github-multiplatform-example' do
+  use_frameworks!
+  pod 'SnapKit'
+  pod 'SwiftLint'
+end
