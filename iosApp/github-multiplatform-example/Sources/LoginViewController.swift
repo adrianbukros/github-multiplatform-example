@@ -72,45 +72,47 @@ class LoginViewController: UIViewController {
         loginButton.snp.makeConstraints {
             $0.height.equalTo(50)
         }
-
+        
         loginButton.addTarget(self, action: #selector(loginButtonDidTap), for: .touchUpInside)
     }
-
+    
     @objc private func loginButtonDidTap() {
         errorLabel.isHidden = true
         loaderView.isHidden = false
         loaderView.startAnimating()
-
+        
         guard let username = usernameTextField.text, !username.isEmpty else {
             self.errorLabel.isHidden = false
             self.errorLabel.text = "Please fill the username!"
             self.loaderView.stopAnimating()
             return
         }
-
+        
         guard let password = passwordTextField.text, !password.isEmpty else {
             self.errorLabel.isHidden = false
             self.errorLabel.text = "Please fill the password!"
             self.loaderView.stopAnimating()
             return
         }
+        
+        GitHubApiClient(githubUserName: username, githubPassword: password).repos(
+            successCallback:{ [weak self] repos in
+                self?.loaderView.stopAnimating()
 
-        GitHubApiClient(githubUserName: username, githubPassword: password).repos { [unowned self] result in
-            self.loaderView.stopAnimating()
-
-            if let error = result.error {
-                self.errorLabel.isHidden = false
-                self.errorLabel.text = "Request failed! Error: \(error.message ?? "unknown")"
-            }
-
-            if let repos = result.repos {
                 let vc = RepoListViewController(repos: repos)
-                self.navigationController?.pushViewController(vc, animated: true)
-            }
+                self?.navigationController?.pushViewController(vc, animated: true)
 
-            return StdlibUnit()
-        }
+                return StdlibUnit()
+            }, errorCallback: { [weak self] error in
+                self?.loaderView.stopAnimating()
+                self?.errorLabel.isHidden = false
+
+                self?.errorLabel.text = "Request failed! Error: \(error.message ?? "unknown")"
+                
+                return StdlibUnit()
+        })
+        
         view.endEditing(true)
     }
-
+    
 }

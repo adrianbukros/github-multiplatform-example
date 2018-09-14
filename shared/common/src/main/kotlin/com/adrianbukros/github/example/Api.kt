@@ -16,7 +16,7 @@ class GitHubApiClient(private val githubUserName: String, private val githubPass
 
     private val httpClient = HttpClient()
 
-    fun repos(callback: (RepoResult) -> Unit) {
+    fun repos(successCallback: (List<GitHubRepo>) -> Unit, errorCallback: (Exception) -> Unit) {
         launch(ApplicationDispatcher) {
             try {
                 val result: String = httpClient.get {
@@ -32,27 +32,12 @@ class GitHubApiClient(private val githubUserName: String, private val githubPass
                 val repos = JsonTreeParser(result).read().jsonArray
                         .map { it.jsonObject }
                         .map { GitHubRepo(it["name"].content, it["html_url"].content) }
-                callback(RepoResult(repos))
+                successCallback(repos)
             } catch (ex: Exception) {
-                callback(RepoResult(ex))
+                errorCallback(ex)
             }
         }
     }
 }
 
 data class GitHubRepo(val name: String, val htmlUrl: String)
-
-class RepoResult {
-    val repos: List<GitHubRepo>?
-    val error: Exception?
-
-    constructor(repos: List<GitHubRepo>) {
-        this.repos = repos
-        this.error = null
-    }
-
-    constructor(exception: Exception) {
-        this.repos = null
-        this.error = exception
-    }
-}
