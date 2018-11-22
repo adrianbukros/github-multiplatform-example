@@ -45,6 +45,10 @@ kotlin {
     }
 }
 
+configurations {
+    compileClasspath
+}
+
 task packForXCode(type: Sync) {
     final File frameworkDir = new File(buildDir, "xcode-frameworks")
 
