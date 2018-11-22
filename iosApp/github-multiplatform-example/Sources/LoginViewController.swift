@@ -1,7 +1,7 @@
 import Foundation
 import UIKit
 import SnapKit
-import Shared
+import shared
 
 class LoginViewController: UIViewController {
 
@@ -35,7 +35,7 @@ class LoginViewController: UIViewController {
 
         loaderView.isHidden = true
         loaderView.hidesWhenStopped = true
-        loaderView.activityIndicatorViewStyle = .gray
+        loaderView.style = .gray
         formStackView.addArrangedSubview(loaderView)
 
         usernameTextField.placeholder = "username"
@@ -94,7 +94,7 @@ class LoginViewController: UIViewController {
             self.loaderView.stopAnimating()
             return
         }
-        
+
         GitHubApiClient(githubUserName: username, githubPassword: password).repos(
             successCallback:{ [weak self] repos in
                 self?.loaderView.stopAnimating()
@@ -102,17 +102,16 @@ class LoginViewController: UIViewController {
                 let vc = RepoListViewController(repos: repos)
                 self?.navigationController?.pushViewController(vc, animated: true)
 
-                return StdlibUnit()
+                return KotlinUnit()
             }, errorCallback: { [weak self] error in
                 self?.loaderView.stopAnimating()
                 self?.errorLabel.isHidden = false
 
                 self?.errorLabel.text = "Request failed! Error: \(error.message ?? "unknown")"
                 
-                return StdlibUnit()
+                return KotlinUnit()
         })
         
         view.endEditing(true)
     }
-    
 }

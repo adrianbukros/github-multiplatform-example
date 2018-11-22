@@ -7,10 +7,6 @@ plugins {
     id("kotlin-android-extensions")
 }
 
-kotlin {
-    experimental.coroutines = Coroutines.ENABLE
-}
-
 android {
     buildToolsVersion = "28.0.2"
     compileSdkVersion(28)
@@ -30,12 +26,13 @@ android {
 }
 
 dependencies {
+    implementation("com.android.support.constraint:constraint-layout:1.1.3")
+    implementation("com.android.support.constraint:constraint-layout:1.1.3")
+    implementation("com.android.support:appcompat-v7:28.0.0")
+    implementation("com.android.support:recyclerview-v7:28.0.0")
+    implementation("io.ktor:ktor-client-json-jvm:1.0.0")
+    implementation("io.ktor:ktor-client-okhttp:1.0.0")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.0.0")
     implementation(kotlin("stdlib-jdk7", KotlinCompilerVersion.VERSION))
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:0.23.4")
-    implementation("com.android.support.constraint:constraint-layout:1.1.3")
-    implementation("com.android.support:appcompat-v7:28.0.0-rc02")
-    implementation("com.android.support.constraint:constraint-layout:1.1.3")
-    implementation("com.android.support:recyclerview-v7:28.0.0-rc02")
-
-    implementation("com.adrianbukros.github.example:android:0.1.0")
+    implementation(project(":shared"))
 }

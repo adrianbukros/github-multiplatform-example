@@ -1,0 +1,60 @@
+apply plugin: "kotlin-multiplatform"
+apply plugin: "kotlinx-serialization"
+
+kotlin {
+    targets {
+        fromPreset(presets.jvm, "jvm")
+        
+        fromPreset(presets.iosX64, "ios_x86_64")
+        fromPreset(presets.iosArm64, "ios_arm64")
+        configure([ios_x86_64, ios_arm64]) {
+            compilations.main.outputKinds("FRAMEWORK")
+        }
+    }
+    sourceSets {
+        commonMain {
+            dependencies {
+                api "io.ktor:ktor-client-core:$ktor_version"
+                api "io.ktor:ktor-client-json:$ktor_version"
+                api "org.jetbrains.kotlinx:kotlinx-coroutines-core-common:$coroutines_version"
+                api "org.jetbrains.kotlinx:kotlinx-serialization-runtime-common:$serialization_version"
+                api "org.jetbrains.kotlin:kotlin-stdlib"
+            }
+        }
+        jvmMain {
+            dependencies {
+                api "io.ktor:ktor-client-core-jvm:$ktor_version"
+                api "io.ktor:ktor-client-json-jvm:$ktor_version"
+                api "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+                api "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines_version"
+                api "org.jetbrains.kotlinx:kotlinx-serialization-runtime:$serialization_version"
+            }
+        }
+        iosMain {
+            dependencies {
+                api "io.ktor:ktor-client-core-ios:$ktor_version"
+                api "io.ktor:ktor-client-ios:$ktor_version"
+                api "io.ktor:ktor-client-json-ios:$ktor_version"
+                api "org.jetbrains.kotlinx:kotlinx-coroutines-core-native:$coroutines_version"
+                api "org.jetbrains.kotlinx:kotlinx-serialization-runtime-native:$serialization_version"
+            }
+        }
+        configure([ios_x86_64Main, ios_arm64Main]) {
+            dependsOn iosMain
+        }
+    }
+}
+
+task packForXCode(type: Sync) {
+    final File frameworkDir = new File(buildDir, "xcode-frameworks")
+
+    final String configuration = project.findProperty("CONFIGURATION")?.toUpperCase() ?: "DEBUG"
+    final String arch = project.findProperty("ARCHS") ?: "x86_64"
+    
+    dependsOn kotlin.targets."ios_${arch}".compilations.main.linkTaskName("FRAMEWORK", configuration)
+
+    from { kotlin.targets."ios_${arch}".compilations.main.getBinary("FRAMEWORK", configuration).parentFile }
+    into frameworkDir
+}
+
+tasks.build.dependsOn packForXCode

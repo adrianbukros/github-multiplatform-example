@@ -5,13 +5,14 @@ import android.os.Bundle
 import android.os.Parcelable
 import android.support.v7.app.AppCompatActivity
 import android.view.View
-import kotlinx.coroutines.experimental.android.UI
-import kotlinx.coroutines.experimental.launch
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.coroutines.*
 import java.util.*
 
 
 class MainActivity : AppCompatActivity() {
+
+    private val uiScope = CoroutineScope(Dispatchers.Main)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,7 +47,7 @@ class MainActivity : AppCompatActivity() {
 
         GitHubApiClient(username, password).repos(
                 successCallback = {
-                    launch(UI) {
+                    uiScope.launch() {
                         progressBar.visibility = View.GONE
 
                         val reposListParcelable = it.map { repo ->
@@ -56,7 +57,7 @@ class MainActivity : AppCompatActivity() {
                                 .apply { putParcelableArrayListExtra(ListActivity.REPO_EXTRAS_KEY, reposListParcelable as ArrayList<out Parcelable>) })
                     }
                 }, errorCallback = {
-            launch(UI) {
+            uiScope.launch() {
                 progressBar.visibility = View.GONE
 
                 errorText.visibility = View.VISIBLE

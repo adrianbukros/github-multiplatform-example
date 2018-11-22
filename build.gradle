@@ -1,0 +1,22 @@
+buildscript {
+    repositories {
+        maven { url "https://kotlin.bintray.com/kotlinx" }
+        maven { url 'https://dl.bintray.com/jetbrains/kotlin-native-dependencies' }
+        google()
+        jcenter()
+    }
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath "org.jetbrains.kotlin:kotlin-serialization:$kotlin_version"
+        classpath "com.android.tools.build:gradle:$gradle_android_version"
+    }
+}
+
+allprojects {
+    repositories {
+        maven { url "https://kotlin.bintray.com/kotlinx" }
+        maven { url "https://dl.bintray.com/kotlin/ktor" }
+        google()
+        jcenter()
+    }
+}
