@@ -1,7 +1,7 @@
 import Foundation
 import UIKit
 import SnapKit
-import Shared
+import shared
 
 class RepoListViewController: UIViewController {
 

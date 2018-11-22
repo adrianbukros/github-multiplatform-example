@@ -1,5 +1,7 @@
 target 'github-multiplatform-example' do
   use_frameworks!
+  inhibit_all_warnings!
+  
   pod 'SnapKit'
   pod 'SwiftLint'
 end

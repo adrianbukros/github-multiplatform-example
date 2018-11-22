@@ -14,28 +14,17 @@
 		3A49E3FC2142B704001B54D3 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A49E3F82142B704001B54D3 /* LoginViewController.swift */; };
 		3A49E3FD2142B704001B54D3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A49E3F92142B704001B54D3 /* AppDelegate.swift */; };
 		3A49E3FE2142B704001B54D3 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A49E3FA2142B704001B54D3 /* UIColor+.swift */; };
-		D71CDE2D2145AAA200FAA6BC /* Shared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D71CDE262145AAA200FAA6BC /* Shared.framework */; };
-		D71CDE2E2145AAA200FAA6BC /* Shared.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D71CDE262145AAA200FAA6BC /* Shared.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D7E79D2121A6267400FA676D /* shared.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D7E79D1E21A6251F00FA676D /* shared.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		D71CDE2B2145AAA200FAA6BC /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 3A49E3D92142B669001B54D3 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = D71CDE252145AAA200FAA6BC;
-			remoteInfo = Shared;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXCopyFilesBuildPhase section */
-		3A49E4102142B7D8001B54D3 /* Embed Frameworks */ = {
+		3A6642AD21A5564800AD0773 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				D71CDE2E2145AAA200FAA6BC /* Shared.framework in Embed Frameworks */,
+				D7E79D2121A6267400FA676D /* shared.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -53,10 +42,8 @@
 		3A49E3F92142B704001B54D3 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3A49E3FA2142B704001B54D3 /* UIColor+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 		9675E4A17601F5EB979DD37F /* Pods-github-multiplatform-example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-github-multiplatform-example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-github-multiplatform-example/Pods-github-multiplatform-example.debug.xcconfig"; sourceTree = "<group>"; };
-		D71CDE262145AAA200FAA6BC /* Shared.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Shared.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		D71CDE282145AAA200FAA6BC /* Shared.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Shared.h; sourceTree = "<group>"; };
-		D71CDE292145AAA200FAA6BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D7B565CEAE183B31F2070042 /* Pods-github-multiplatform-example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-github-multiplatform-example.release.xcconfig"; path = "Pods/Target Support Files/Pods-github-multiplatform-example/Pods-github-multiplatform-example.release.xcconfig"; sourceTree = "<group>"; };
+		D7E79D1E21A6251F00FA676D /* shared.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = shared.framework; path = "../shared/build/xcode-frameworks/shared.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,7 +52,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				251555E4B9A26E5A10DC04A2 /* Pods_github_multiplatform_example.framework in Frameworks */,
-				D71CDE2D2145AAA200FAA6BC /* Shared.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,11 +61,10 @@
 		3A49E3D82142B669001B54D3 = {
 			isa = PBXGroup;
 			children = (
-				3A49E3E32142B66A001B54D3 /* github-multiplatform-example */,
-				D71CDE272145AAA200FAA6BC /* Shared */,
-				3A49E3E22142B66A001B54D3 /* Products */,
-				CCAFA9EA45D3D8BA7109D77A /* Pods */,
 				E152E41AFF5D5F3CBF156415 /* Frameworks */,
+				3A49E3E32142B66A001B54D3 /* github-multiplatform-example */,
+				CCAFA9EA45D3D8BA7109D77A /* Pods */,
+				3A49E3E22142B66A001B54D3 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
@@ -87,7 +72,6 @@
 			isa = PBXGroup;
 			children = (
 				3A49E3E12142B66A001B54D3 /* github-multiplatform-example.app */,
-				D71CDE262145AAA200FAA6BC /* Shared.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -95,10 +79,10 @@
 		3A49E3E32142B66A001B54D3 /* github-multiplatform-example */ = {
 			isa = PBXGroup;
 			children = (
-				3A49E3F62142B704001B54D3 /* Sources */,
+				3A49E3F02142B66B001B54D3 /* Info.plist */,
 				3A49E3EB2142B66B001B54D3 /* Assets.xcassets */,
 				3A49E3ED2142B66B001B54D3 /* LaunchScreen.storyboard */,
-				3A49E3F02142B66B001B54D3 /* Info.plist */,
+				3A49E3F62142B704001B54D3 /* Sources */,
 			);
 			path = "github-multiplatform-example";
 			sourceTree = "<group>";
@@ -106,9 +90,9 @@
 		3A49E3F62142B704001B54D3 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				3A49E3F72142B704001B54D3 /* RepoListViewController.swift */,
-				3A49E3F82142B704001B54D3 /* LoginViewController.swift */,
 				3A49E3F92142B704001B54D3 /* AppDelegate.swift */,
+				3A49E3F82142B704001B54D3 /* LoginViewController.swift */,
+				3A49E3F72142B704001B54D3 /* RepoListViewController.swift */,
 				3A49E3FA2142B704001B54D3 /* UIColor+.swift */,
 			);
 			path = Sources;
@@ -123,18 +107,10 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		D71CDE272145AAA200FAA6BC /* Shared */ = {
-			isa = PBXGroup;
-			children = (
-				D71CDE282145AAA200FAA6BC /* Shared.h */,
-				D71CDE292145AAA200FAA6BC /* Info.plist */,
-			);
-			path = Shared;
-			sourceTree = "<group>";
-		};
 		E152E41AFF5D5F3CBF156415 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D7E79D1E21A6251F00FA676D /* shared.framework */,
 				16C0AACD71397E7D67208782 /* Pods_github_multiplatform_example.framework */,
 			);
 			name = Frameworks;
@@ -148,36 +124,21 @@
 			buildConfigurationList = 3A49E3F32142B66B001B54D3 /* Build configuration list for PBXNativeTarget "github-multiplatform-example" */;
 			buildPhases = (
 				37CE8789727B6AA15430DEED /* [CP] Check Pods Manifest.lock */,
+				D7E79D1D21A6185100FA676D /* Kotlin Build */,
 				3A49E3DD2142B669001B54D3 /* Sources */,
 				3A49E3DE2142B669001B54D3 /* Frameworks */,
 				3A49E3DF2142B669001B54D3 /* Resources */,
-				3A49E4102142B7D8001B54D3 /* Embed Frameworks */,
 				D6994677A9057BD5D6B9C245 /* [CP] Embed Pods Frameworks */,
+				3A6642AD21A5564800AD0773 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				D71CDE2C2145AAA200FAA6BC /* PBXTargetDependency */,
 			);
 			name = "github-multiplatform-example";
 			productName = "github-multiplatform-example";
 			productReference = 3A49E3E12142B66A001B54D3 /* github-multiplatform-example.app */;
 			productType = "com.apple.product-type.application";
-		};
-		D71CDE252145AAA200FAA6BC /* Shared */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = D71CDE2F2145AAA200FAA6BC /* Build configuration list for PBXNativeTarget "Shared" */;
-			buildPhases = (
-				D71CDE322145B10A00FAA6BC /* Gradle */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = Shared;
-			productName = Shared;
-			productReference = D71CDE262145AAA200FAA6BC /* Shared.framework */;
-			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
 
@@ -191,9 +152,7 @@
 				TargetAttributes = {
 					3A49E3E02142B669001B54D3 = {
 						CreatedOnToolsVersion = 9.4.1;
-					};
-					D71CDE252145AAA200FAA6BC = {
-						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 1010;
 					};
 				};
 			};
@@ -211,7 +170,6 @@
 			projectRoot = "";
 			targets = (
 				3A49E3E02142B669001B54D3 /* github-multiplatform-example */,
-				D71CDE252145AAA200FAA6BC /* Shared */,
 			);
 		};
 /* End PBXProject section */
@@ -265,19 +223,23 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-github-multiplatform-example/Pods-github-multiplatform-example-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		D71CDE322145B10A00FAA6BC /* Gradle */ = {
+		D7E79D1D21A6185100FA676D /* Kotlin Build */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
+			inputFileListPaths = (
+			);
 			inputPaths = (
 			);
-			name = Gradle;
+			name = "Kotlin Build";
+			outputFileListPaths = (
+			);
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"$SRCROOT/../gradlew\" -p \"$SRCROOT/../shared/ios\" \"$KOTLIN_NATIVE_TASK\" copyFramework \\\n-PconfigurationBuildDir=\"$CONFIGURATION_BUILD_DIR\"";
+			shellScript = "cd ${SRCROOT}/..\n./gradlew :shared:packForXCode \\\n  -PCONFIGURATION=${CONFIGURATION} \\\n  -PARCHS=${ARCHS}\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -294,14 +256,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		D71CDE2C2145AAA200FAA6BC /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = D71CDE252145AAA200FAA6BC /* Shared */;
-			targetProxy = D71CDE2B2145AAA200FAA6BC /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		3A49E3ED2142B66B001B54D3 /* LaunchScreen.storyboard */ = {
@@ -435,10 +389,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = S68CRKG245;
+				DEVELOPMENT_TEAM = 6K955L5KRU;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/SnapKit\"",
+					"$(PROJECT_DIR)/github-multiplatform-example",
+					"$(SRCROOT)/../shared/build/xcode-frameworks",
 				);
 				INFOPLIST_FILE = "github-multiplatform-example/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -447,7 +404,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "adrianbukros.com.github-multiplatform-example";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -458,10 +415,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = S68CRKG245;
+				DEVELOPMENT_TEAM = 6K955L5KRU;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/SnapKit\"",
+					"$(PROJECT_DIR)/github-multiplatform-example",
+					"$(SRCROOT)/../shared/build/xcode-frameworks",
 				);
 				INFOPLIST_FILE = "github-multiplatform-example/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -470,70 +430,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "adrianbukros.com.github-multiplatform-example";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
-		D71CDE302145AAA200FAA6BC /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = S68CRKG245;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = Shared/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				KOTLIN_NATIVE_TASK = "";
-				"KOTLIN_NATIVE_TASK[sdk=iphoneos*]" = assembleDebugFrameworkIos_arm64;
-				"KOTLIN_NATIVE_TASK[sdk=iphonesimulator*]" = assembleDebugFrameworkIos_x64;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.adrianbukros.github.example.Shared;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		D71CDE312145AAA200FAA6BC /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = S68CRKG245;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = Shared/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				KOTLIN_NATIVE_TASK = "";
-				"KOTLIN_NATIVE_TASK[sdk=iphoneos*]" = assembleReleaseFrameworkIos_arm64;
-				"KOTLIN_NATIVE_TASK[sdk=iphonesimulator*]" = assembleReleaseFrameworkIos_x64;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.adrianbukros.github.example.Shared;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
 		};
@@ -554,15 +452,6 @@
 			buildConfigurations = (
 				3A49E3F42142B66B001B54D3 /* Debug */,
 				3A49E3F52142B66B001B54D3 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		D71CDE2F2145AAA200FAA6BC /* Build configuration list for PBXNativeTarget "Shared" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				D71CDE302145AAA200FAA6BC /* Debug */,
-				D71CDE312145AAA200FAA6BC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
